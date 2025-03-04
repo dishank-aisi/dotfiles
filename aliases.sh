@@ -1,53 +1,38 @@
+#!/bin/bash
+
+cat << 'EOF' >> $HOME/.bashrc
 alias c='clear'
 
 # github aliases 
 alias gc='git commit'
 alias glog='git log'
 alias ga='git add'
+alias gs='git status'
 
 
 #venv aliases
 alias activate='source $(pwd)/.venv/bin/activate'
 
-# prompt format for bash shell
-# Check if the current shell is Bash
-if [ -n "$BASH_VERSION" ]; then
-    # Function to get Git branch and status
-    get_git_info() {
-        local branch
-        local status
-        local staged=""
-        local unstaged=""
-        local untracked=""
+# setting up the shell prompt
+parse_git_branch() {
+  git_branch=$(git symbolic-ref --short -q HEAD 2>/dev/null)
+  if [ -n "$git_branch" ]; then
+    git_status=$(git status --porcelain 2>/dev/null)
+    if [ -n "$git_status" ]; then
+      if echo "$git_status" | grep -q "^??"; then
+        git_color="\[\033[0;31m\]" # red for untracked files
+      else
+        git_color="\[\033[0;32m\]" # green for changes
+      fi
+    else
+      git_color="\[\033[0;36m\]" # cyan for clean
+    fi
+    echo " $git_color($git_branch)\[\033[0m\]"
+  fi
+}
 
-        # Check if the current directory is a Git repository
-        if branch=$(git symbolic-ref --short HEAD 2>/dev/null); then
-            # Get the status of the repository
-            status=$(git status --porcelain 2>/dev/null)
+# Set the prompt
+export PS1='\[\033[0;33m\]\w\[\033[0m\]$(parse_git_branch)\[\033[0;32m\] \$\[\033[0m\] '
 
-            # Check for staged changes
-            if echo "$status" | grep -q "^[MADRC]"; then
-                staged="\[\e[32m\]"  # Green color for staged changes
-            fi
 
-            # Check for unstaged changes
-            if echo "$status" | grep -q "^.[MADRC]"; then
-                unstaged="\[\e[31m\]"  # Red color for unstaged changes
-            fi
-
-            # Check for untracked files
-            if echo "$status" | grep -q "^??"; then
-                untracked="\[\e[31m\]"  # Red color for untracked files
-            fi
-
-            # Combine the status indicators
-            echo " \[\e[36m\]$branch$staged$unstaged$untracked\[\e[0m\]"
-        fi
-    }
-
-    # Enable prompt substitution
-    shopt -s promptvars
-
-    # Set the prompt
-    export PS1='\[\e[33m\]\w\[\e[0m\]$(get_git_info) \[\e[32m\]$\[\e[0m\] '
-fi
+EOF
