@@ -10,6 +10,16 @@ alias gs='git status'
 # venv aliases
 alias activate='source $(pwd)/.venv/bin/activate'
 
+# aws aliases
+s3-ls(){
+  aws s3 ls s3://$AISI_PLATFORM_BUCKET/teams/ru/agents/$AISI_PALTFOR_USER/$1/
+}
+alias s3-cp(){
+  aws s3 cp $1 s3://$AISI_PLATFORM_BUCKET/teams/ru/agents/$AISI_PALTFOR_USER/$2/
+}
+alias s3-rm='aws s3 rm'
+
+
 # Function to get git branch info
 function parse_git_branch () {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
