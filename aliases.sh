@@ -1,4 +1,3 @@
-cat << 'EOF' >> $HOME/.bashrc
 alias c='clear'
 
 # github aliases 
@@ -51,4 +50,3 @@ function format_directory () {
 
 # Custom bash prompt: formatted directory + git branch (in red)
 export PS1='\[\e[33m\]$(format_directory)\[\e[m\]\[\e[31m\]$(parse_git_branch)\[\e[m\]\[\e[32m\]\$ \[\e[m\]'
-EOF
