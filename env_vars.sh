@@ -1,0 +1,1 @@
+export S3BUCKET=s3://$AISI_PLATFORM_BUCKET/teams/ru/agents/$AISI_PLATFORM_USER
