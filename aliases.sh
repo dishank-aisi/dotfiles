@@ -1,7 +1,7 @@
 alias c='clear'
 
 # github aliases 
-alias gc='git commit'
+alias gc='git commit -m'
 alias glog='git log'
 alias ga='git add -u'
 alias gs='git status'
@@ -10,13 +10,13 @@ alias gs='git status'
 alias activate='source $(pwd)/.venv/bin/activate'
 
 # aws aliases
-s3-ls(){
-  aws s3 ls s3://$AISI_PLATFORM_BUCKET/teams/ru/agents/$AISI_PALTFOR_USER/$1/
+sls(){
+  aws s3 ls s3://$AISI_PLATFORM_BUCKET/teams/ru/agents/$AISI_PALTFORM_USER/$1/
 }
-alias s3-cp(){
-  aws s3 cp $1 s3://$AISI_PLATFORM_BUCKET/teams/ru/agents/$AISI_PALTFOR_USER/$2/
+scp(){
+  aws s3 cp $1 s3://$AISI_PLATFORM_BUCKET/teams/ru/agents/$AISI_PALTFORM_USER/$2/
 }
-alias s3-rm='aws s3 rm'
+alias srm='aws s3 rm'
 
 
 # Function to get git branch info
