@@ -9,4 +9,4 @@ source $HOME/.bashrc
 git clone https://github.com/dishank-aisi/dotfiles.git
 source dotfiles/control.sh
 
-s3fs aisi-data-eu-west-2-prod:/teams/ru/agents/dishank/ ~/control-arena/lol_logs -o iam_role=auto -o url=https://s3.eu-west-2.amazonaws.com -o endpoint=eu-west-2 -o use_path_request_style -o compat_dir
+s3fs aisi-data-eu-west-2-prod:/teams/ru/agents/dishank/control_arena/ ~/control-arena/lol_logs -o iam_role=auto -o url=https://s3.eu-west-2.amazonaws.com -o endpoint=eu-west-2 -o use_path_request_style -o compat_dir
