@@ -6,13 +6,20 @@ git clone https://github.com/UKGovernmentBEIS/control-arena.git --recurse-submod
 cd control-arena
 
 # uv install everything
-
 echo "---running uv sync...----"
-uv sync --dev --all-extras --group aisi-internal
-
+uv sync --dev --all-extras
 
 # install kind
 echo "-----installing kind-----"
+
+# Set inotify limits and ulimit --> Without this kind causes problem
+sudo sh -c 'echo "fs.inotify.max_user_watches=1048576" >> /etc/sysctl.conf'
+sudo sh -c 'echo "fs.inotify.max_user_instances=1024" >> /etc/sysctl.conf'
+sudo sysctl -p
+ulimit -n 1048576
+sudo sh -c 'echo "*\tsoft\tnofile\t1048576
+*\thard\tnofile\t1048576" >> /etc/security/limits.conf'
+
 sudo apt --assume-yes install golang-go
 go install sigs.k8s.io/kind@v0.27.0
 
