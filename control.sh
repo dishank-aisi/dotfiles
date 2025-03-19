@@ -2,7 +2,7 @@
 
 #clone the branch
 echo "---Cloning the repo---"
-git clone -b red-team https://github.com/UKGovernmentBEIS/control-arena.git --recurse-submodules
+git clone https://github.com/UKGovernmentBEIS/control-arena.git --recurse-submodules
 cd control-arena
 
 # uv install everything
@@ -25,7 +25,8 @@ cd control_arena/settings/k8s_infra_sabotage_simple
 make setup
 cd ../../..
 
+# mount the s3 bucket
+mkdir logs
+s3fs aisi-data-eu-west-2-prod:/teams/ru/agents/dishank/control_arena/ ~/logs -o iam_role=auto -o url=https://s3.eu-west-2.amazonaws.com -o endpoint=eu-west-2 -o use_path_request_style -o compat_dir
 
 echo "------SETUP FINSIHED-------"
-
-
