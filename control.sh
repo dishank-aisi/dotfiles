@@ -27,10 +27,10 @@ echo "export PATH=~/go/bin:$PATH" >> ~/.bashrc
 source ~/.bashrc
 
 # make-setup the k8-settings
-echo "-----Make setup for the k8 cluster-----"
-cd control_arena/settings/k8s_infra_sabotage_simple
-make setup
-cd ../../..
+# echo "-----Make setup for the k8 cluster-----"
+# cd control_arena/settings/k8s_infra_sabotage_simple
+# make setup
+# cd ../../..
 
 # mount the s3 bucket
 sudo apt install -y s3fs
