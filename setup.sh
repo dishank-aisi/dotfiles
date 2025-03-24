@@ -9,5 +9,9 @@ cat dotfiles/env_vars.sh >> $HOME/.bashrc
 
 source $HOME/.bashrc
 
+# setting up claude code
+sudo npm install -g @anthropic-ai/claude-code
+uv tool install git+ssh://git@github.com/AI-Safety-Institute/claudeup.git
+
 # setting up the control arena
 source dotfiles/control.sh
