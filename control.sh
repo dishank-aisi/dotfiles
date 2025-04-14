@@ -8,6 +8,7 @@ cd control-arena
 # uv install everything
 echo "---running uv sync...----"
 uv sync --dev --all-extras
+uv pip install "git+ssh://git@github.com/AI-Safety-Institute/aisi-inspect-tools"
 
 # install kind
 echo "-----installing kind-----"
