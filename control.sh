@@ -21,11 +21,12 @@ ulimit -n 1048576
 sudo sh -c 'echo "*\tsoft\tnofile\t1048576
 *\thard\tnofile\t1048576" >> /etc/security/limits.conf'
 
-sudo apt --assume-yes install golang-go
-go install sigs.k8s.io/kind@v0.27.0
-
-echo "export PATH=~/go/bin:$PATH" >> ~/.bashrc
+wget https://go.dev/dl/go1.24.3.linux-amd64.tar.gz # install go
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf go1.24.3.linux-amd64.tar.gz
+echo "export PATH=$PATH:/usr/local/go/bin >> ~/.bashrc"
 source ~/.bashrc
+go install sigs.k8s.io/kind@v0.29.0
 
 # make-setup the k8-settings
 # echo "-----Make setup for the k8 cluster-----"
