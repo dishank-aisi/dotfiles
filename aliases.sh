@@ -11,13 +11,12 @@ alias activate='source $(pwd)/.venv/bin/activate'
 
 # aws aliases
 sls(){
-  aws s3 ls s3://$AISI_PLATFORM_BUCKET/teams/ru/agents/$AISI_PALTFORM_USER/$1/
+  aws s3 ls s3://$AISI_PLATFORM_BUCKET/teams/ru/agents/dishank/$1/
 }
 scp(){
-  aws s3 cp $1 s3://$AISI_PLATFORM_BUCKET/teams/ru/agents/$AISI_PALTFORM_USER/$2/
+  aws s3 cp $1 s3://$AISI_PLATFORM_BUCKET/teams/ru/agents/dishank/$2/
 }
 alias srm='aws s3 rm'
-
 
 # Function to get git branch info
 function parse_git_branch () {

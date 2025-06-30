@@ -1,0 +1,57 @@
+{
+    "remote.SSH.defaultExtensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.debugpy",
+        "GitHub.copilot",
+        "ms-vscode-remote.remote-ssh",
+        "ms-vscode-remote.remote-containers",
+        "ms-python.mypy-type-checker",
+        "charliermarsh.ruff",
+        "ms-toolsai.jupyter",
+        "ukaisi.inspect-ai",
+        "tamasfe.even-better-toml",
+    ],
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "python.createEnvironment.trigger": "off",
+    "github.copilot.advanced": {},
+    "python.analysis.packageIndexDepths": [
+        {
+            "name": "sklearn",
+            "depth": 2
+        },
+        {
+            "name": "matplotlib",
+            "depth": 2
+        },
+        {
+            "name": "scipy",
+            "depth": 2
+        },
+        {
+            "name": "django",
+            "depth": 2
+        },
+        {
+            "name": "flask",
+            "depth": 2
+        },
+        {
+            "name": "fastapi",
+            "depth": 2
+        },
+        {
+            "name": "inspect_ai",
+            "depth": 2
+        }
+    ],
+    "editor.wordWrap": "on",
+    "editor.formatOnSave": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+}
