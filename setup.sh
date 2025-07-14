@@ -13,5 +13,8 @@ source $HOME/.bashrc
 sudo npm install -g @anthropic-ai/claude-code
 uv tool install git+ssh://git@github.com/AI-Safety-Institute/claudeup.git
 
-# setting up the control arena
-source dotfiles/control.sh
+#tmux set up
+echo "set -g mouse on" >> ~/.tmux.conf
+
+# setting up the sangbagging propensity
+source dotfiles/sandbag.sh
