@@ -2,7 +2,7 @@
 
 #clone the branch
 echo "---Cloning the repo---"
-git clone git@github.com:dishank-aisi/sandbag-propensity.git --recurse-submodules
+git clone git@github.com:AI-Safety-Institute/sandbag-propensity.git --recurse-submodules
 cd sandbag-propensity
 
 # Installing everything

@@ -6,6 +6,9 @@ alias glog='git log'
 alias ga='git add -u'
 alias gs='git status'
 
+# prettify ls
+alias ls='ls -X'
+
 # venv aliases
 alias activate='source $(pwd)/.venv/bin/activate'
 
