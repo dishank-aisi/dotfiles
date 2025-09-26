@@ -32,7 +32,7 @@ function format_directory () {
 
   # If exactly home, show "~"
   if [[ "$dir" == "$HOME" ]]; then
-    echo "~"
+    echo "~"s
   # If direct child of home, show "~/child"
   elif [[ "$dir" =~ ^"$HOME"/[^/]+$ ]]; then
     echo "~/${dir#$HOME/}"
@@ -42,13 +42,13 @@ function format_directory () {
     if [[ $segments -eq 2 || $segments -eq 3 ]]; then
       echo "$dir"
     else
-      # Otherwise, show ../parent_dir/current_dir
-      local parent_dir=$(basename "$(dirname "$dir")")
+      # Otherwise, show ../current_dir
       local current_dir=$(basename "$dir")
-      echo "../${parent_dir}/${current_dir}"
+      echo "../${current_dir}"
     fi
   fi
 }
+
 
 # Custom bash prompt: formatted directory + git branch (in red)
 export PS1='\[\e[33m\]$(format_directory)\[\e[m\]\[\e[31m\]$(parse_git_branch)\[\e[m\]\[\e[32m\]\$ \[\e[m\]'
