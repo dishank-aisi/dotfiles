@@ -20,11 +20,5 @@ echo "set -g mouse on" >> ~/.tmux.conf
 # installing s3fs to mount buckets
 sudo apt install -y s3fs
 
-# setting up the sangbagging propensity
-source dotfiles/sandbag-propensity.sh
-
 # setting up the instrinsic 
 source dotfiles/intrinsic.sh
-
-# setting up the eval_awareness
-source dotfiles/eval-awareness.sh
