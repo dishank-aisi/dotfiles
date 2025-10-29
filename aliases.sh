@@ -6,6 +6,10 @@ alias glog='git log'
 alias ga='git add -u'
 alias gs='git status'
 
+
+# isambard aliases
+alias clifton-auth='clifton auth --identity ~/.ssh/aisi_internal'
+
 # prettify ls
 alias ls='ls -X'
 
