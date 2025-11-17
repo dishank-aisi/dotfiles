@@ -15,9 +15,19 @@
 
 set -euo pipefail
 
-# Source common logging helpers (required)
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}" )" && pwd)"
-source "${SCRIPT_DIR}/lib/isambard_common.sh"
+_log_ts() { date +"%Y-%m-%dT%H:%M:%S"; }
+
+log_info()    { echo "[INFO]  $( _log_ts ) $*"; }
+log_warn()    { echo "⚠️  $( _log_ts ) $*" >&2; }
+log_error()   { echo "❌ $( _log_ts ) $*" >&2; }
+log_success() { echo "✅ $( _log_ts ) $*"; }
+log_step()    { echo "🔧 $( _log_ts ) $*"; }
+log_hint()    { echo "💡 $( _log_ts ) $*"; }
+log_debug()   { [[ "${ISAMBARD_DEBUG:-0}" == "1" ]] && echo "[DEBUG] $( _log_ts ) $*" >&2 || true; }
+
+# Exit with error message
+die() { log_error "$*"; exit 1; }
+
 
 MARKER_START="# >>> ISAMBARD_AWS_CREDS START >>>"
 MARKER_END="# <<< ISAMBARD_AWS_CREDS END <<<"
