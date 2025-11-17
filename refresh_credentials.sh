@@ -6,10 +6,10 @@
 #
 # Usage:
 #   bash refresh_credentials.sh               # default host
-#   bash refresh_credentials.sh a5o.aip2.isambard
+#   bash refresh_credentials.sh a5r.aip1.isambard
 #
 # Env:
-#   ISAMBARD_HOST_ALIAS  Default host alias if no arg provided (defaults to a5o.aip2.isambard)
+#   ISAMBARD_HOST_ALIAS  Default host alias if no arg provided (defaults to a5r.aip1.isambard)
 #
 # Idempotency: Only the block between the START/END markers is replaced.
 
@@ -21,7 +21,7 @@ source "${SCRIPT_DIR}/lib/isambard_common.sh"
 
 MARKER_START="# >>> ISAMBARD_AWS_CREDS START >>>"
 MARKER_END="# <<< ISAMBARD_AWS_CREDS END <<<"
-DEFAULT_HOST="${ISAMBARD_HOST_ALIAS:-a5o.aip2.isambard}"
+DEFAULT_HOST="${ISAMBARD_HOST_ALIAS:-a5r.aip1.isambard}"
 HOST_ALIAS="${1:-$DEFAULT_HOST}"
 
 if ! command -v aws >/dev/null 2>&1; then
